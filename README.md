@@ -1,1 +1,1 @@
-# gsg_master
+# Get Set Gig master project
