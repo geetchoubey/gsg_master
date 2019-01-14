@@ -23,7 +23,7 @@ db.sequelize.sync(/*{force: true}*/).then(() => {
 // app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use((req, res, next) => {
   if (req.secure) next();
