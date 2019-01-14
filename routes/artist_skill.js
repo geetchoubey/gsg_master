@@ -6,7 +6,7 @@ const Skills = require('../Models/Skill');
 
 const ArtistAuth = require('./auth/artist');
 
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 // Fetch Artist publicly available Genre
