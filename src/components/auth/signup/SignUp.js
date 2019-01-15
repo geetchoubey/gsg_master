@@ -7,7 +7,7 @@ const SignUp = (props) => {
         <div className="form-item sign-up">
         <div className="table">
           <div className="table-cell">
-            <input name="email" placeholder="Email" type="text" /><input name="fullName" placeholder="Full Name" type="text" /><input name="Username" placeholder="Username" type="text" /><input name="Password" placeholder="Password" type="Password" />
+            <input name="email" placeholder="Email" type="text" /><input name="password" placeholder="Password" type="password" /><input name="confPassword" placeholder="Confirm Password" type="password" /><input name="contact" placeholder="Contact No." type="text" />
             <div className="btn">
               Sign up
             </div>

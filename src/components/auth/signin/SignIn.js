@@ -1,17 +1,15 @@
-import React from "react"
+import React from "react";
+import ForgotPass from "./../forgotPass/ForgotPass";
+import SigninSection from "./SigninSection";
 
 
 const SignIn = (props) => {
+  const LoadSection = props.data ? <ForgotPass switchHandler={props.switchSectionHandler}/> : <SigninSection switchHandler={props.switchSectionHandler}/>
     return(
         <React.Fragment>
         <div className="form-item log-in">
         <div className="table">
-          <div className="table-cell">
-            <input name="Username" placeholder="Username" type="text" /><input name="Password" placeholder="Password" type="Password" />
-            <div className="btn">
-              Log in
-            </div>
-          </div>
+         {LoadSection}
         </div>
       </div>
         </React.Fragment>

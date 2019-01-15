@@ -6,14 +6,34 @@ import SignUp from "./signup/SignUp";
 class Auth extends Component {
 
   state = {
-    showSignIn:true
+    showSignIn:true,
+    showForgotPass:false
   }
 
-  loginSignupClickHandler = () => {
+  loginSignupClickHandler = (l) => {
+    if(l==="login"){
+      this.setState({
+        showSignIn:true
+      })
+    }
+    else{
+      this.setState({
+        showSignIn:false
+      })
+    }
+    
+  }
+
+  showForgotPassHandler = (el) => {
     this.setState({
-      showSignIn:!this.state.showSignIn
+      showForgotPass:!this.state.showForgotPass
     })
   }
+  componentDidMount = () => {
+    this.loginSignupClickHandler((this.props.location.pathname).replace("/",""))
+    
+  }
+
   render() {
     const containerClasses = ["container"];
     if(this.state.showSignIn === false){
@@ -22,7 +42,7 @@ class Auth extends Component {
     return (
       <React.Fragment>
         <Helmet>
-            <title>Getsetgig | Login</title>
+            <title>Getsetgig | {(this.props.location.pathname).replace("/","") === "login" ? "Login" : "Signup"}</title>
         </Helmet>
       <div className="Auth top-header-space">
         <div className={containerClasses.join(" ")}>
@@ -35,7 +55,7 @@ class Auth extends Component {
                     <p>
                       Have an account?
                     </p>
-                    <div className="btn" onClick={this.loginSignupClickHandler}>
+                    <div className="btn" onClick={() => this.loginSignupClickHandler("login")}>
                       Log in
                     </div>
                   </div>
@@ -47,7 +67,7 @@ class Auth extends Component {
                     <p>
                       Don't have an account? 
                     </p>
-                    <div className="btn" onClick={this.loginSignupClickHandler}>
+                    <div className="btn" onClick={() => this.loginSignupClickHandler("signup")}>
                       Sign up
                     </div>
                   </div>
@@ -55,7 +75,7 @@ class Auth extends Component {
               </div>
             </div>
             <div className="container-form">
-              <SignIn/>
+              <SignIn data={this.state.showForgotPass} switchSectionHandler={this.showForgotPassHandler}/>
               <SignUp/>
             </div>
           </div>
