@@ -12,8 +12,10 @@ const Header = (props) => {
                 </Link>
             </div>
             <div className="menu-wrapper">
-                <NavLink to="/about">About us</NavLink>
                 <NavLink to="/login">Login</NavLink>
+                <NavLink to="/signup">Sign up</NavLink>
+                <NavLink to="/about">About us</NavLink>
+               
             </div>
         </header>
     )

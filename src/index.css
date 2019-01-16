@@ -140,7 +140,7 @@ header{
   height: 70px!important;
   border: none;
   height: 76px;
-  padding: 6px 3px 0;
+  padding: 0px 10px;
   background-color: rgba(0,0,0,.1);
   color: #fff;
   transition: all .25s ease;
@@ -150,13 +150,13 @@ header{
   left: 0px;
   width: 100%;
   z-index: 99;
+  overflow: hidden;
 }
 
 header .logo-wrapper{
-  width: 100px;
-    float: left;
-    padding: 8px 10px;
-    margin: 0 2px;
+  float: left;
+  padding: 15px 10px;
+  margin: 0 2px;
 }
 
 header.black .logo-wrapper img{
@@ -180,11 +180,18 @@ header .menu-wrapper a{
   position: relative;
   top: 0;
   right: 0;
-  float: right;
-  padding: 10px 11px 8px;
-  margin: 11px 10px;
+  float: left;
+  padding: 25px 20px;
+  /* margin: 11px 10px; */
   cursor: pointer;
   font-size: 15px;
+  -webkit-transition: all 400ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+
+header .menu-wrapper a.active{
+  background-color: var(--color3);
+  color:#fff;
 }
 
 .about-us .about-us-banner{
@@ -524,7 +531,7 @@ button{
   .Auth{
     height: 100vh;
     background: var(--color4);
-    min-height: 500px;
+    min-height: 550px;
   }
 
 
@@ -538,10 +545,9 @@ button{
  .Auth .table-cell {
     display: table-cell;
     vertical-align: middle;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    padding: 0px 35px;
   }
   
  .Auth .container {
@@ -594,14 +600,15 @@ button{
     cursor: pointer;
     text-align: center;
     margin: 0 auto;
-    width: 60px;
+    width: 130px;
     color: #fff;
-    background-color: #ff73b3;
+    background-color: var(--color3);
     opacity: 1;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    display: block;
   }
  .Auth .container .btn:hover {
     opacity: 0.7;
@@ -612,7 +619,7 @@ button{
  .Auth .container input {
     margin: 0 auto 15px;
     display: block;
-    width: 220px;
+    width: 100%;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
@@ -637,7 +644,7 @@ button{
     transition: all 0.3s;
   }
  .Auth .container .container-forms .container-info .info-item p {
-    font-size: 20px;
+    font-size: 19px;
     margin: 20px;
   }
  .Auth .container .container-forms .container-info .info-item .btn {
@@ -670,7 +677,7 @@ button{
     position: absolute;
     left: 160px;
     top: -50px;
-    color: #5356ad;
+    color: var(--color3);
     font-size: 130px;
     opacity: 0;
     -moz-transition: all 0.5s;
@@ -680,7 +687,6 @@ button{
   }
  .Auth .container .container-form .btn {
     position: relative;
-    box-shadow: 0 0 10px 1px #ff73b3;
     margin-top: 30px;
   }
  .Auth .container .form-item {
@@ -738,7 +744,7 @@ button{
     position: absolute;
     left: 51px;
     top: 5px;
-    color: #5356ad;
+    color: var(--color3);
     font-size: 130px;
     opacity: 1;
   }
@@ -766,4 +772,42 @@ button{
     z-index: 3;
     fill: #fff;
   }
-  
+
+.Auth .forgot-password{
+  text-align: right;
+  -webkit-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    cursor: pointer;
+}
+.Auth .forgot-password:hover{
+  color: var(--color3);
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition-delay: 100ms;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+div.transition-group {
+  position: relative;
+}
+
+section.route-section {
+  width: 100%;
+  top: 0;
+  left: 0;
+}
