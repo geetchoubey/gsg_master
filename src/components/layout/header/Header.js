@@ -12,11 +12,15 @@ const Header = (props) => {
                 </Link>
             </div>
             <div className="menu-wrapper">
+                
                 <NavLink to="/login">Login</NavLink>
                 <NavLink to="/signup">Sign up</NavLink>
                 <NavLink to="/about">About us</NavLink>
-               
+                <a href="tel:+918108264474">Call: +91-8108264474</a>
             </div>
+
+            
+
         </header>
     )
 }
