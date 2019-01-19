@@ -10,7 +10,7 @@ class Auth extends Component {
     showForgotPass:false
   }
 
-  loginSignupClickHandler = (l) => {
+  loginSignupClickHandler = (l, e) => {
     if(l==="login"){
       this.setState({
         showSignIn:true
@@ -21,6 +21,9 @@ class Auth extends Component {
         showSignIn:false
       })
     }
+
+    
+    
     
   }
 
@@ -39,12 +42,20 @@ class Auth extends Component {
     if(this.state.showSignIn === false){
       containerClasses.push("log-in")
     }
+
+    
+
+
     return (
       <React.Fragment>
         <Helmet>
             <title>Getsetgig | {(this.props.location.pathname).replace("/","") === "login" ? "Login" : "Signup"}</title>
         </Helmet>
       <div className="Auth top-header-space">
+        <div className="login-menu">
+          <button onClick={(e)=>this.loginSignupClickHandler("login", e)} className={this.state.showSignIn ? "active" : ""}>Log in</button>
+          <button onClick={(e)=>this.loginSignupClickHandler("signup", e)} className={!this.state.showSignIn ? "active" : ""}>Sign up</button>
+        </div>
         <div className={containerClasses.join(" ")}>
           <div className="box"></div>
           <div className="container-forms">

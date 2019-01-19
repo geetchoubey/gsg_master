@@ -176,7 +176,7 @@ header.white{
 header .menu-wrapper{
   float: right;
 }
-header .menu-wrapper a{
+header .menu-wrapper a, header .menu-wrapper button{
   position: relative;
   top: 0;
   right: 0;
@@ -365,7 +365,6 @@ header .menu-wrapper a.active{
   border-radius: 0;
   background: #f0f0f0;
   color: #aaa;
-  font-weight: bold;
   -webkit-appearance: none;
   font-size: 18px;
 }
@@ -462,9 +461,8 @@ header .menu-wrapper a.active{
 	transform: scale3d(0.81, 0.81, 1) translate3d(0, 3em, 0);
 }
 
-button{
+.subscribe button{
   min-width: 150px;
-  max-width: 250px;
   display: block;
   margin: 1em;
   padding: 1em 2em;
@@ -810,4 +808,134 @@ section.route-section {
   width: 100%;
   top: 0;
   left: 0;
+}
+
+header .call-us{
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.Auth .login-menu{
+  position: absolute;
+    top: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    display: none;
+}
+
+.Auth .login-menu button{
+  border: 1px solid var(--color3);
+  background: none;
+  margin: 0 8px;
+  padding: 10px 15px;
+  width: 130px;
+  border-radius: 4px;
+  color: var(--color3);
+  outline: none;
+
+}
+.Auth .login-menu button.active{
+  background: var(--color3);
+  color: #fff;
+}
+
+
+@media (max-width:990px){
+  .about-us-events-wrapper{
+    padding: 20px 20px 20px;
+  }
+  footer{
+    padding-top: 40px;
+  }
+  footer h5{
+    margin-top: 30px;
+  }
+}
+
+@media (max-width:767px){
+  .about-us-event {
+    width: 50%;
+    padding: 20px 20px;
+}
+.footer-copy ul{
+  float: none;
+}
+footer .footer-copy{
+  margin-top: 20px;
+    padding: 20px 0px;
+    text-align: center;
+}
+.footer-copy .copyright{
+  margin-bottom: 20px;
+}
+footer a{
+  line-height: 21px;
+}
+.terms .terms-wrapper{
+  width: 90%;
+  padding: 20px;
+}
+
+
+.Auth .container{
+  background: transparent;
+  width: auto;
+}
+.Auth .container .container-forms .container-info{
+  display: none;
+}
+.Auth .container .container-form{
+  left: 50% !important;
+  transform: translateX(-50%);
+  max-width: 90%;
+}
+.Auth .container .box{
+  display: none;
+}
+
+.Auth{
+  min-height: 600px;
+}
+
+.Auth .login-menu{
+  display: block;
+}
+
+}
+
+@media (max-width:480px){
+  .about-us-event {
+    width: 100%;
+    padding: 20px 20px;
+}
+.about-us .about-us-banner .about-us-banner-inner{
+  font-size: 24px;
+}
+.about-us-dec1 h1{
+  font-size: 20px;
+}
+.about-us-dec1 p{
+  width: 800px;
+    min-width: 320px;
+    max-width: 90%;
+    line-height: 1.6;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #777;
+}
+.about-us-event p.title{
+  font-size: 17px;
+}
+.about-us-event p.dis{
+  font-size: 14px;
+}
+.about-us-event-img img{
+  width: 110px;
+}
+.terms .terms-wrapper{
+  width: 95%;
+  padding: 5px;
+}
 }
