@@ -5,7 +5,7 @@ import {Link, NavLink} from "react-router-dom";
 const Header = (props) => {
     return(
         
-        <header className="white">
+        <header className={props.headerColor}>
             <div className="logo-wrapper">
                 <Link to="/">
                     <img src={"/images/logo.png"} className="white" alt=""/>
@@ -16,6 +16,7 @@ const Header = (props) => {
                 <NavLink to="/login">Login</NavLink>
                 <NavLink to="/signup">Sign up</NavLink>
                 <NavLink to="/about">About us</NavLink>
+                <NavLink to="/contact">Contact us</NavLink>
                 <a href="tel:+918108264474">Call: +91-8108264474</a>
             </div>
 
