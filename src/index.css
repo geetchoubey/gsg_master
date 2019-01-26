@@ -893,7 +893,7 @@ header .call-us{
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     padding: 10px 15px;
-    background: rgba(0,0,0,0.3);
+    background: #fff;
     border: 1px solid #999191;
     color: #fff;
     outline: none;
