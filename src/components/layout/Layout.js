@@ -9,15 +9,16 @@ import ScrollToTop from 'react-router-scroll-top';
 
 
 const Layout = (props) => {
+    
     return(
 
             
             <BrowserRouter>
             <React.Fragment>
                 
-                <Header/>
+                <Header headerColor={props.headerColor}/>
                 
-                <Container/>
+                <Container headerColorHandler={props.headerColorHandler}/>
                 
                 <Footer/>
                 <ScrollToTop/>
