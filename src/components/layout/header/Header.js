@@ -1,6 +1,6 @@
 import React from "react"
 import {Link, NavLink} from "react-router-dom";
-
+// import HeaderForm from "./HeaderForm/HeaderForm"
 
 const Header = (props) => {
     return(
@@ -11,6 +11,7 @@ const Header = (props) => {
                     <img src={"/images/logo.png"} className="white" alt=""/>
                 </Link>
             </div>
+            {/* <HeaderForm/> */}
             <div className="menu-wrapper">
                 
                 <NavLink to="/login">Login</NavLink>

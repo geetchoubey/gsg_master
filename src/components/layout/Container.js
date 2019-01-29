@@ -24,7 +24,7 @@ class Container extends React.Component{
     }
 
     changeHeaderColor = () => {
-        if(this.props.location.pathname === '/contact'){
+        if(this.props.location.pathname === '/contact' || this.props.location.pathname === "/"){
             this.props.headerColorHandler("black");
         }
         else{
