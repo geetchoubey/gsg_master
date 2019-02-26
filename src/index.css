@@ -71,7 +71,9 @@ footer ul li{
   list-style: none;
 }
 
-
+.text-uppercase{
+  text-transform: uppercase;
+}
 
 strong{
   font-weight: bold;
@@ -940,7 +942,6 @@ header .call-us{
   background: var(--color1);
   padding-top: 140px;
   padding-bottom: 150px;
-  margin-bottom: 150px;
 }
 
 .homepage-banner .home-banner-text-wrapper{
@@ -1104,8 +1105,182 @@ header .call-us{
   display: none;
 }
 
+section.services{
+  margin-bottom: 100px;
+}
+
+.services-wrapper{
+  margin-top: -52px;
+    background: #fff;
+    box-shadow: 0 -3px 31px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.02);
+    padding: 0px 20px;
+    border-radius: 15px;
+}
+
+.services-wrapper .icon{
+  -webkit-filter: brightness(0) invert(0);
+  filter: brightness(0) invert(0);
+  width: 40px;
+  opacity: 0.7;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.services-wrapper .icon + p{
+  margin-bottom: 20px;
+  color: var(--color1);
+  font-size: 16px;
+
+}
+
+.homepage-artists-wrapper{
+  background-color: #fbfbfb;
+  
+}
+
+.homepage-artists-wrapper .container{
+  padding: 50px 50px 30px;
+}
 
 
+.homepage-artists-wrapper .slick-arrow {
+  display: inline-block;
+  border: none;
+  background: none;
+  position: absolute;
+  right: -55px;
+  top: 50%;
+  outline: none;
+  color: transparent;
+}
+
+button.slick-arrow::after {
+  content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    border: 2px solid #000;
+    float: right;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-bottom: none;
+    border-left: none;
+    position: relative;
+    top: -6px;
+    left: -7px;
+}
+
+.slick-arrow.slick-prev {
+  display: block;
+  left: -50px;
+}
+
+button.slick-arrow.slick-prev::after {
+  float: left;
+  border: 2px solid #000;
+  border-top: none;
+  border-right: none;
+  margin-left: 6px;
+}
+
+button.slick-arrow::before {
+  content: "";
+    width: 34px;
+    height: 2px;
+    background: #000;
+    display: block;
+}
+
+
+.homepage-artists-slide{
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/images/singer.jpg);
+  color: black;
+  position: relative;
+  height: 400px;
+  transition: background-position 0.3s ease 0s;
+  display: block;
+  background-size: cover;
+  background-position: center 100%;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+.homepage-artists .slick-list .slick-center .homepage-artists-slide{
+  opacity: 1;
+  transform: scale(1.05)
+}
+
+.homepage-artists-slide:hover {
+  background-position: center 0%;
+}
+
+.homepage-artists-slide-wrapper{
+  padding: 0px 20px;
+  outline: none;
+}
+
+.homepage-artists .slick-list{
+  padding-bottom: 50px !important;
+  padding-top: 50px !important;
+}
+.homepage-artists-slide-content-wrapper{
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+.homepage-artists-slide-content-wrapper h2{
+  font-size: 35px;
+}
+
+.homepage-artists-slide-content-wrapper p{
+  font-size: 20px;
+}
+
+.hero-column__cta {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -65px;
+  width: 130px;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.5);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.homepage-artists-slide:hover .hero-column__cta {
+  background-color: var(--color3);
+}
+
+.homepage-artists-slide .player {
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  height: 62px;
+  width: 62px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  position: relative;
+  line-height: 2.4em;
+  font-size: 1.75rem;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.homepage-artists-slide:hover .player{
+  opacity: 1;
+}
 
 @media (max-width:990px){
   .about-us-events-wrapper{
@@ -1116,6 +1291,9 @@ header .call-us{
   }
   footer h5{
     margin-top: 30px;
+  }
+  .homepage-artists-slide-wrapper{
+    padding: 0px 10px;
   }
 }
 
@@ -1254,6 +1432,14 @@ header.white .hamberger-menu span{
 
 header.white.open .hamberger-menu span{
   background: #fff;
+}
+
+.homepage-artists-slide-wrapper{
+  padding: 0px 5px;
+}
+
+.homepage-artists-wrapper .container{
+  padding: 50px 60px 30px;
 }
 
 }
