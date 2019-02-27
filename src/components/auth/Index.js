@@ -51,7 +51,7 @@ class Auth extends Component {
         <Helmet>
             <title>Getsetgig | {(this.props.location.pathname).replace("/","") === "login" ? "Login" : "Signup"}</title>
         </Helmet>
-      <div className="Auth top-header-space">
+      <div className="Auth slide-form-layout top-header-space">
         <div className="login-menu">
           <button onClick={(e)=>this.loginSignupClickHandler("login", e)} className={this.state.showSignIn ? "active" : ""}>Log in</button>
           <button onClick={(e)=>this.loginSignupClickHandler("signup", e)} className={!this.state.showSignIn ? "active" : ""}>Sign up</button>

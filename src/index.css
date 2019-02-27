@@ -540,13 +540,13 @@ header .menu-wrapper a, header .menu-wrapper button{
 
 
 
- .Auth .table {
+ .slide-form-layout .table {
     display: table;
     width: 100%;
     height: 100%;
   }
   
- .Auth .table-cell {
+ .slide-form-layout .table-cell {
     display: table-cell;
     vertical-align: middle;
     -webkit-transition: all 0.5s;
@@ -554,7 +554,7 @@ header .menu-wrapper a, header .menu-wrapper button{
     padding: 0px 35px;
   }
   
- .Auth .container {
+ .slide-form-layout .container {
     position: relative;
     width: 600px;
     margin: 30px auto 0;
@@ -568,7 +568,7 @@ header .menu-wrapper a, header .menu-wrapper button{
     transition: all 0.5s;
     padding: 0px;
   }
- .Auth .container .box {
+ .slide-form-layout .container .box {
     position: absolute;
     left: 0;
     top: 0;
@@ -576,7 +576,7 @@ header .menu-wrapper a, header .menu-wrapper button{
     height: 100%;
     overflow: hidden;
   }
- .Auth .container .box:before, .Auth .container .box:after {
+ .slide-form-layout .container .box:before, .slide-form-layout .container .box:after {
     content: " ";
     position: absolute;
     left: 152px;
@@ -590,17 +590,17 @@ header .menu-wrapper a, header .menu-wrapper button{
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
   }
- .Auth .container .box:after {
+ .slide-form-layout .container .box:after {
     background-color: rgba(255, 157, 160, 0.5);
     top: -10px;
     left: 80px;
     width: 320px;
     height: 180px;
   }
- .Auth .container .container-forms {
+ .slide-form-layout .container .container-forms {
     position: relative;
   }
- .Auth .container .btn {
+ .slide-form-layout .container .btn {
     cursor: pointer;
     text-align: center;
     margin: 0 auto;
@@ -614,13 +614,13 @@ header .menu-wrapper a, header .menu-wrapper button{
     transition: all 0.5s;
     display: block;
   }
- .Auth .container .btn:hover {
+ .slide-form-layout .container .btn:hover {
     opacity: 0.7;
   }
- .Auth .container .btn, .Auth .container input {
+ .slide-form-layout .container .btn, .slide-form-layout .container input {
     padding: 10px 15px;
   }
- .Auth .container input {
+ .slide-form-layout .container input {
     margin: 0 auto 15px;
     display: block;
     width: 100%;
@@ -629,11 +629,11 @@ header .menu-wrapper a, header .menu-wrapper button{
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
- .Auth .container .container-forms .container-info {
+ .slide-form-layout .container .container-forms .container-info {
     text-align: left;
     font-size: 0;
   }
- .Auth .container .container-forms .container-info .info-item {
+ .slide-form-layout .container .container-forms .container-info .info-item {
     text-align: center;
     font-size: 16px;
     width: 300px;
@@ -647,22 +647,22 @@ header .menu-wrapper a, header .menu-wrapper button{
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
- .Auth .container .container-forms .container-info .info-item p {
+ .slide-form-layout .container .container-forms .container-info .info-item p {
     font-size: 19px;
     margin: 20px;
   }
- .Auth .container .container-forms .container-info .info-item .btn {
+ .slide-form-layout .container .container-forms .container-info .info-item .btn {
     background-color: transparent;
     border: 1px solid #fff;
   }
- .Auth .container .container-forms .container-info .info-item .table-cell {
+ .slide-form-layout .container .container-forms .container-info .info-item .table-cell {
     padding-right: 35px;
   }
- .Auth .container .container-forms .container-info .info-item:nth-child(2) .table-cell {
+ .slide-form-layout .container .container-forms .container-info .info-item:nth-child(2) .table-cell {
     padding-left: 35px;
     padding-right: 0;
   }
- .Auth .container .container-form {
+ .slide-form-layout .container .container-form {
     overflow: hidden;
     position: absolute;
     left: 30px;
@@ -676,7 +676,7 @@ header .menu-wrapper a, header .menu-wrapper button{
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
   }
- .Auth .container .container-form:before {
+ .slide-form-layout .container .container-form:before {
     content: "✔";
     position: absolute;
     left: 160px;
@@ -689,11 +689,11 @@ header .menu-wrapper a, header .menu-wrapper button{
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
   }
- .Auth .container .container-form .btn {
+ .slide-form-layout .container .container-form .btn {
     position: relative;
     margin-top: 30px;
   }
- .Auth .container .form-item {
+ .slide-form-layout .container .form-item {
     position: absolute;
     left: 0;
     top: 0;
@@ -705,45 +705,45 @@ header .menu-wrapper a, header .menu-wrapper button{
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
   }
- .Auth .container .form-item.sign-up {
+ .slide-form-layout .container .form-item.sign-up {
     position: absolute;
     left: -100%;
     opacity: 0;
   }
- .Auth .container.log-in .box:before {
+ .slide-form-layout .container.log-in .box:before {
     position: absolute;
     left: 180px;
     top: 62px;
     height: 265px;
   }
- .Auth .container.log-in .box:after {
+ .slide-form-layout .container.log-in .box:after {
     top: 22px;
     left: 192px;
     width: 324px;
     height: 220px;
   }
- .Auth .container.log-in .container-form {
+ .slide-form-layout .container.log-in .container-form {
     left: 265px;
   }
- .Auth .container.log-in .container-form .form-item.sign-up {
+ .slide-form-layout .container.log-in .container-form .form-item.sign-up {
     left: 0;
     opacity: 1;
   }
- .Auth .container.log-in .container-form .form-item.log-in {
+ .slide-form-layout .container.log-in .container-form .form-item.log-in {
     left: -100%;
     opacity: 0;
   }
- .Auth .container.active {
+ .slide-form-layout .container.active {
     width: 260px;
     height: 140px;
     margin-top: -70px;
   }
- .Auth .container.active .container-form {
+ .slide-form-layout .container.active .container-form {
     left: 30px;
     width: 200px;
     height: 200px;
   }
- .Auth .container.active .container-form:before {
+ .slide-form-layout .container.active .container-form:before {
     content: "✔";
     position: absolute;
     left: 51px;
@@ -752,22 +752,22 @@ header .menu-wrapper a, header .menu-wrapper button{
     font-size: 130px;
     opacity: 1;
   }
- .Auth .container.active input, .Auth .container.active .btn, .Auth .container.active .info-item {
+ .slide-form-layout .container.active input, .slide-form-layout .container.active .btn, .slide-form-layout .container.active .info-item {
     display: none;
     opacity: 0;
     padding: 0px;
     margin: 0 auto;
     height: 0;
   }
- .Auth .container.active .form-item {
+ .slide-form-layout .container.active .form-item {
     height: 100%;
   }
- .Auth .container.active .container-forms .container-info .info-item {
+ .slide-form-layout .container.active .container-forms .container-info .info-item {
     height: 0%;
     opacity: 0;
   }
   
- .Auth .rabbit {
+ .slide-form-layout .rabbit {
     width: 50px;
     height: 50px;
     position: absolute;
@@ -777,13 +777,13 @@ header .menu-wrapper a, header .menu-wrapper button{
     fill: #fff;
   }
 
-.Auth .forgot-password{
+.slide-form-layout .forgot-password{
   text-align: right;
   -webkit-transition: all 400ms ease-in-out;
     transition: all 400ms ease-in-out;
     cursor: pointer;
 }
-.Auth .forgot-password:hover{
+.slide-form-layout .forgot-password:hover{
   color: var(--color3);
 }
 
@@ -822,7 +822,7 @@ header .call-us{
   border: none;
 }
 
-.Auth .login-menu{
+.slide-form-layout .login-menu{
   position: absolute;
     top: 16%;
     left: 50%;
@@ -831,7 +831,7 @@ header .call-us{
     display: none;
 }
 
-.Auth .login-menu button{
+.slide-form-layout .login-menu button{
   border: 1px solid var(--color3);
   background: none;
   margin: 0 8px;
@@ -842,7 +842,7 @@ header .call-us{
   outline: none;
 
 }
-.Auth .login-menu button.active{
+.slide-form-layout .login-menu button.active{
   background: var(--color3);
   color: #fff;
 }
@@ -1282,6 +1282,34 @@ button.slick-arrow::before {
   opacity: 1;
 }
 
+
+.steps-wrapper .slide-form-layout .container{
+  margin-top: 0px;
+  width: 1050px;
+  max-width: 95%;
+}
+
+.steps-wrapper .slide-form-layout .container .container-form{
+  width: 80%;
+}
+
+.steps-wrapper .slide-form-layout .container.log-in .container-form{
+  left: 17%;
+}
+
+.steps-wrapper .slide-form-layout .container .container-forms .container-info .info-item{
+  width: 17%;
+}
+
+.steps-wrapper .slide-form-layout .container .container-forms .container-info .info-item:first-child{
+  float: left;
+}
+
+
+.steps-wrapper .slide-form-layout .container .container-forms .container-info .info-item:last-child{
+  float: right;
+}
+
 @media (max-width:990px){
   .about-us-events-wrapper{
     padding: 20px 20px 20px;
@@ -1322,19 +1350,19 @@ footer a{
 }
 
 
-.Auth .container{
+.slide-form-layout .container{
   background: transparent;
   width: auto;
 }
-.Auth .container .container-forms .container-info{
+.slide-form-layout .container .container-forms .container-info{
   display: none;
 }
-.Auth .container .container-form{
+.slide-form-layout .container .container-form{
   left: 50% !important;
   transform: translateX(-50%);
   max-width: 90%;
 }
-.Auth .container .box{
+.slide-form-layout .container .box{
   display: none;
 }
 
@@ -1342,7 +1370,7 @@ footer a{
   min-height: 600px;
 }
 
-.Auth .login-menu{
+.slide-form-layout .login-menu{
   display: block;
 }
 .contact-wrapper{
