@@ -6,7 +6,7 @@ const Banner = (props) => {
         <section className="homepage-banner">
                 <div className="container">
                     <div className="row">
-                        <div className="col-sm-6">
+                        <div className="col-sm-12 center">
                             <div className="home-wrapper">
                                 <div className="home-banner-text-wrapper">
                                 <h1 className="text-transparent">Add Live To Your<br/>Event</h1>
@@ -16,7 +16,7 @@ const Banner = (props) => {
                             </div>
                         </div>
 
-                        <div className="col-sm-4 offset-sm-2">
+                        <div className="col-sm-12">
                             <div className="home-wrapper">
                                 <BannerForm  eventDate={props.eventDate} changeHandler = {props.dateChangeHandler}/>
                             </div>
