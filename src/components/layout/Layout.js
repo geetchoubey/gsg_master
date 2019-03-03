@@ -16,7 +16,7 @@ const Layout = (props) => {
             <BrowserRouter>
             <React.Fragment>
                 
-                {/* <Header headerColor={props.headerColor}/> */}
+                <Header headerColor={props.headerColor}/>
                 
                 <Container headerColorHandler={props.headerColorHandler}/>
                 

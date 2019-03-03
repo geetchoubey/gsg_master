@@ -4,6 +4,7 @@ import Banner from "./Banner/Banner";
 import Services from "./Services/Services";
 import HomepageArtists from "./HomepageArtists/HomepageArtists";
 import Steps from "./Steps/Steps";
+import Testimonials from "./Testimonials/Testimonials"
 
 class Homepage extends React.Component{
     state = {
@@ -21,7 +22,8 @@ class Homepage extends React.Component{
                 img: "/images/singer.jpg",
                 vid: "https://www.youtube.com/embed/jFGKJBPFdUA"
             }
-        ]
+        ],
+        showArtistsSteps:false
     }
     
     handleChange = (date) => {
@@ -30,6 +32,20 @@ class Homepage extends React.Component{
             eventDate: date
         })
         
+      }
+
+      artistsStepsClickHandler = (l, e) => {
+        console.log(l)
+        if(l==="artist"){
+          this.setState({
+            showArtistsSteps:true
+          })
+        }
+        else{
+          this.setState({
+            showArtistsSteps:false
+          })
+        }
       }
     render(){
         return(
@@ -41,8 +57,9 @@ class Homepage extends React.Component{
             <Banner eventDate={this.state.eventDate} dateChangeHandler = {this.handleChange}/>
 
             <Services/>
-            <Steps/>
+            <Steps artistsStepsClickHandler = {this.artistsStepsClickHandler} showArtistsSteps = {this.state.showArtistsSteps}/>
             <HomepageArtists artists = {this.state.homepageArtists}/>
+            <Testimonials/>
         </div>
         </React.Fragment>
         )

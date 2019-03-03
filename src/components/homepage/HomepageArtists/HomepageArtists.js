@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 const HomepageArtists = (props) => {
-    console.log(props)
     var settings = {
         centerMode: true,
         centerPadding: '60px',
