@@ -30,7 +30,7 @@ const transport = nodemailer.createTransport({
 
 transport.use('compile', hbs(options));
 
-exports.sendEmail = function (to, subject, templateName, context, callback) {
+exports.sendEmail = (to, subject, templateName, context) => {
   const mailOptions = {
     from: 'geet@getsetgig.com', // sender address
     to: to, // list of receivers
@@ -39,8 +39,11 @@ exports.sendEmail = function (to, subject, templateName, context, callback) {
     context: context
   };
 
-  transport.sendMail(mailOptions, (err, info) => {
-    return callback(err, info);
+  return new Promise((resolve, reject) => {
+      transport.sendMail(mailOptions, (err, info) => {
+        if (err) return reject(err);
+        resolve(info);
+      });
   });
 };
 

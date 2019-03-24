@@ -29,6 +29,7 @@ db.Sequelize = Sequelize;
 db.paginate = (req, results) => {
   const itemCount = results.count;
   const pageCount = Math.ceil(results.count / req.query.limit);
+  req.query.page = req.query.page? req.query.page : 1;
   return {
     data: results.rows,
     pageCount,

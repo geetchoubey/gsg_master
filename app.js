@@ -37,6 +37,16 @@ app.use(cookieParser());
 
 app.use('/api', index);
 
+app.use((err, req, res, next) => {
+    if (err.isServer) {
+        // log the error...
+        // probably you don't want to log unauthorized access
+        // or do you?
+        console.log(err);
+    }
+    return res.status(err.output.statusCode).json(err.output.payload);
+});
+
 app.use(history());
 app.use(express.static(path.join(__dirname, 'build')));
 

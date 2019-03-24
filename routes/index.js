@@ -45,11 +45,11 @@ router.use('/images', ImageService);
 });*/
 
 router.get('/encrypt/:str', (req, res, next) => {
-  res.send(Helper.encrypt(req.params.str));
+    res.send(Helper.encrypt(req.params.str));
 });
 
 router.get('/decrypt/:str', (req, res, next) => {
-  res.send(Helper.decrypt(req.params.str));
+    res.send(Helper.decrypt(req.params.str));
 });
 
 module.exports = router;
