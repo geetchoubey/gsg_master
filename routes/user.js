@@ -1,34 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-const db = require('../AssocationModels');
-const Role = require('../Models/Role');
-const Artist = require('../Models/Artist');
-const ArtistType = require('../Models/ArtistType');
-const Image = require('../Models/Image');
-
-const Helper = require('../utils/Helper');
-
 const AdminAuth = require('./auth/admin');
 
 const UserController = require('../Controllers/UserController');
 const boom = require('boom');
 
+const stringConstants = require('../Constants/APIMessages');
+
 router.get('/:id', AdminAuth, function (req, res, next) {
-    db.user.findOne({
-        include: [{
-            model: Role,
-            attributes: {
-                // exclude: ['id']
-            }
-        }],
-        attributes: {
-            exclude: ['password', 'created_at', 'updated_at', 'role_id']
-        },
-        where: {
-            id: Helper.decrypt(req.params.id)
-        }
-    }).then(user => {
+    UserController.getUserProfile(req).then(user => {
         if (!user) {
             res.sendStatus(404);
             return;
@@ -38,139 +19,67 @@ router.get('/:id', AdminAuth, function (req, res, next) {
 });
 
 router.post('/login', (req, res, next) => {
-    db.user.findOne({
-        include: [Role, {
-            model: Artist,
-            as: 'artist',
-            required: false,
-            attributes: {
-                exclude: ['user_id', 'created_at', 'updated_at', 'artist_type_id', 'logo_id']
-            },
-            include: [{
-                model: ArtistType, as: 'artist_type'
-            }, {
-                model: Image, as: 'logo'
-            }]
-        }],
-        where: {
-            email: req.body.email
-        },
-        attributes: {
-            exclude: ['created_at', 'updated_at']
+    UserController.loginUser(req).then(user => {
+        if (user === null) {
+            next(boom.notFound(stringConstants.user.email_not_found));
         }
-    }).then(user => {
-        if (!user) {
-            res.sendStatus(404);
-        } else {
-            console.log(Helper.decrypt(user.dataValues.password));
-            if (Helper.decrypt(user.dataValues.password) === req.body.password) {
-                user.updateAttributes({
-                    auth_token: Helper.encrypt(user.dataValues.email)
-                });
-                delete user.dataValues.password;
-                delete user.dataValues.role;
-                res.send(user.dataValues);
-            } else {
-                res.sendStatus(401);
-            }
+        if (user === false) {
+            return next(boom.unauthorized(stringConstants.user.wrong_password));
         }
+        res.send(user);
 
     }).catch(err => {
-        res.sendStatus(500);
+        global.logger(err);
+        next(boom.internal(err));
     });
 });
 
 router.post('/register', (req, res, next) => {
     UserController.createUser(req).then(result => {
         if (!result) {
-            return next(boom.conflict('User already exists'));
+            return next(boom.conflict(stringConstants.user.already_exists));
         }
         res.status(201).send(result);
     }).catch(err => {
         global.logger(err);
-        next(err);
+        next(boom.internal(err));
     });
 });
 
 router.post('/reset_password/:id', (req, res, next) => {
-    db.user.findOne({
-        where: {
-            id: Helper.decrypt(Helper.decrypt(req.params.id))
-        }
-    }).then(user => {
-        if (!user) {
-            res.sendStatus(404);
-            return;
-        }
-        user.updateAttributes({
-            password: req.body.password
-        });
+    UserController.updatePassword(req).then(result => {
+        if (result === null) return next(boom.notFound(stringConstants.user.not_found));
         res.sendStatus(200);
     }).catch(err => {
-        res.sendStatus(500);
+        global.logger(err);
+        next(boom.internal(err));
     });
 });
 
 router.get('/reset_password/:id', (req, res, next) => {
-    db.user.findOne({
-        // attributes: {
-        //   exclude: ['mobile', 'status', 'auth_token', 'remember_token', 'password', 'created_at', 'updated_at', 'role_id']
-        // },
-        where: {
-            id: Helper.decrypt(Helper.decrypt(req.params.id))
-        }
-    }).then(user => {
+    UserController.checkPasswordResetToken(req).then(user => {
         if (!user) {
-            res.sendStatus(404);
-            return;
+            return next(boom.badRequest(stringConstants.token.invalid_password_reset_token));
         }
         res.sendStatus(200);
     });
 });
 
 router.post('/reset_password', (req, res, next) => {
-    db.user.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(user => {
-        if (!user) {
-            res.sendStatus(404);
-            return;
-        }
-
-        // #TODO Send email with reset password link and token
+    UserController.initiatePasswordResetProcess(req).then(user => {
+        if (!user) return next(boom.notFound(stringConstants.user.not_found));
         res.sendStatus(200);
     }).catch(err => {
         global.logger(err);
-        res.sendStatus(500);
+        next(boom.internal(err));
     });
 });
 
 router.get('/verify/:id/:token', (req, res, next) => {
-    var id = Helper.decrypt(req.params.id);
-    if (id === Helper.decrypt(Helper.decrypt(req.params.token))) {
-        db.user.findOne({
-            where: {
-                id: id
-            }
-        }).then(user => {
-            if (!user) {
-                res.sendStatus(404);
-                return;
-            }
-            if (user.dataValues.status === 'active') {
-                res.send(409);
-                return;
-            }
-            user.updateAttributes({
-                status: 'active'
-            });
-            res.sendStatus(200);
-        });
-    } else {
-        res.sendStatus(401);
-    }
+    UserController.verifyProfile(req).then(verified => {
+        if (verified) return res.sendStatus(200);
+        return next(boom.badRequest(stringConstants.token.invalid_verification_link));
+    });
 });
 
 module.exports = router;
