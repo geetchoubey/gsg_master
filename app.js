@@ -42,8 +42,8 @@ app.use((err, req, res, next) => {
         // log the error...
         // probably you don't want to log unauthorized access
         // or do you?
-        console.log(err);
     }
+    global.logger(err);
     return res.status(err.output.statusCode).json(err.output.payload);
 });
 

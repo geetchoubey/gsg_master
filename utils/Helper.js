@@ -26,6 +26,7 @@ helper.str_slug = function (str) {
 };
 
 helper.encrypt = function (str) {
+  if (!str) return '';
   return cryptr.encrypt(str);
 };
 

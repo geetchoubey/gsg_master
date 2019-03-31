@@ -7,7 +7,10 @@ module.exports = db.define('artist', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
+    get() {
+      return Helper.encrypt(this.getDataValue('id'));
+    }
   },
   name: {
     type: Sequelize.STRING
