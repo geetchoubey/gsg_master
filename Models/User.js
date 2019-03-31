@@ -6,7 +6,10 @@ module.exports = db.define('user', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
+    get() {
+      return helper.encrypt(this.getDataValue('id'));
+    }
   },
   email: {
     type: Sequelize.STRING,
@@ -19,7 +22,7 @@ module.exports = db.define('user', {
   password: {
     type: Sequelize.STRING,
     set(val) {
-      this.setDataValue('password', helper.encrypt(val));
+      if (val) this.setDataValue('password', helper.encrypt(val));
     }
   },
   status: {
