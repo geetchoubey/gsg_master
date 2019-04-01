@@ -213,6 +213,7 @@ module.exports.getArtistBySlug = async (req) => {
         }
     });
     if (!artist) throw boom.notFound(stringConstants.artist.not_found);
+    return artist;
 };
 
 module.exports.uploadImage = async req => {
@@ -221,7 +222,7 @@ module.exports.uploadImage = async req => {
 
     return await new Promise(async (resolve, reject) => {
         let upload = uploadImageTask.upload('logo');
-        upload(async (req, {}, err) => {
+        upload(req, {}, async (err) => {
             if (err) {
                 reject(boom.internal(stringConstants.general.image_upload_error));
             }
