@@ -1,14 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let express = require('express');
+let formidable = require('express-formidable');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 let history = require('connect-history-api-fallback');
 
-var index = require('./routes/index');
+let index = require('./routes/index');
 
-var app = express();
+let app = express();
 
 let db = require('./AssocationModels');
 
@@ -34,6 +35,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(formidable());
 
 app.use('/api', index);
 
